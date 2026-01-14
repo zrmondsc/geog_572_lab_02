@@ -1,0 +1,132 @@
+/* style.css
+readable layout for Q1–Q5 outputs and the generated table.
+*/
+
+/* ---------- Base / Theme ---------- */
+:root{ /*defining variables*/
+  --bg: #0b1020;  /* background color*/
+  --panel: rgba(255, 255, 255, 0.08); /* translucent card background*/
+  --border: rgba(255, 255, 255, 0.14); /* translucent border color*/
+
+  --text: rgba(255, 255, 255, 0.92); /* text colors*/
+
+  --accent: #aabde0; /*additional text colors*/
+  --accent-2: #a6f4c5; /*additional text colors*/
+
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35); /* drop shadow preset*/
+  --radius: 14px; /*rounded corner size*/
+
+  --maxw: 900px; /*maximum content width*/
+}
+
+/* ---------- Page ---------- */
+/*specify the behavior of width and height properties*/
+*{ box-sizing: border-box; } /*the `*` selects every element*/
+
+/*set both <html> and <body> to at least the height of the viewport*/
+html, body{ height: 100%; }
+
+/*body styling*/
+body{
+  margin: 0; /* removes default margin*/
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text); /*makes the text color the text variable assigned above*/
+  line-height: 1.55; /*sets spacing*/
+
+  background: 
+    /*stacking background gradients, the arguements define the size, position, color, 
+    and transparency of the backgrounds*/
+    radial-gradient(1200px 600px at 40% 40%, rgba(202, 209, 199, 0.18), transparent 55%),
+    radial-gradient(1000px 700px at 80% 20%, rgba(166, 244, 197, 0.14), transparent 55%),
+    linear-gradient(180deg, #3e4c77, var(--bg));
+}
+
+/* If you want, wrap your q-divs in a container div with class="container".
+   This rule also works if you don't; it centers all direct children divs. */
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 28px 18px 48px;
+}
+
+/* ---------- Sections (q1–q5) ---------- */
+#q1, #q2, #q3, #q4, #q5{
+  max-width: var(--maxw);
+  margin: 18px auto;
+  padding: 18px 18px 16px;
+
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  /* subtle depth */
+  backdrop-filter: blur(10px);
+}
+
+/* Headings you’re inserting with <b>Q#:</b> */
+#q1 b, #q2 b, #q3 b, #q4 b, #q5 b{
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Make long Q3 output wrap nicely */
+#q3{
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Add some spacing between lines if you're using <br> */
+#q1 br, #q2 br, #q3 br, #q4 br, #q5 br{
+  line-height: 1.9;
+}
+
+/* ---------- Table Styling (Q5) ---------- */
+table{
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden; /* keeps rounded corners */
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border);
+}
+
+th, td{
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  text-align: left;
+}
+
+th{
+  background: rgba(138, 180, 255, 0.14);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+tr:nth-child(even) td{
+  background: rgba(255, 255, 255, 0.04);
+}
+
+tr:hover td{
+  background: rgba(166, 244, 197, 0.08);
+}
+
+/* Make population column align right if it's the 2nd column */
+td:nth-child(2){
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 520px){
+  #q1, #q2, #q3, #q4, #q5{
+    padding: 14px 14px 12px;
+    border-radius: 12px;
+  }
+
+  th, td{
+    padding: 10px 10px;
+  }
+}

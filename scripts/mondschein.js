@@ -8,16 +8,16 @@ function addLine1(line){
     output1 += `${line}<br>`;
 };
 function addLine2(line){
-    output1 += `${line}<br>`;
+    output2 += `${line}<br>`;
 };
 function addLine3(line){
-    output1 += `${line}<br>`;
+    output3 += `${line}<br>`;
 };
 function addLine4(line){
-    output1 += `${line}<br>`;
+    output4 += `${line}<br>`;
 };
 function addLine5(line){
-    output1 += `${line}<br>`;
+    output5 += `${line}<br>`;
 };
 
 // Question 1 - How many vowels?
