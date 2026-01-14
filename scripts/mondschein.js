@@ -1,18 +1,23 @@
-function myFunc(){
-    var myDiv =  document.getElementById("mydiv");
-    myDiv.innerHTML = output;
+let output1 = "";
+let output2 = "";
+let output3 = "";
+let output4 = "";
+let output5 = "";
 
-    //build and append the table for Q5
-    var table = citiesTable(cities, pops);
-    myDiv.appendChild(table);
+function addLine1(line){
+    output1 += `${line}<br>`;
 };
-
-window.onload = myFunc;
-
-let output = "";
-
-function addLine(line){
-    output += `${line}<br>`;
+function addLine2(line){
+    output1 += `${line}<br>`;
+};
+function addLine3(line){
+    output1 += `${line}<br>`;
+};
+function addLine4(line){
+    output1 += `${line}<br>`;
+};
+function addLine5(line){
+    output1 += `${line}<br>`;
 };
 
 // Question 1 - How many vowels?
@@ -36,7 +41,7 @@ for (const char of sentence){
 }
 
 console.log(`Number of vowels: ${num_vowels}`)
-addLine(`<b>Q1:</b> Number of vowels: ${num_vowels}`)
+addLine1(`<b>Q1:</b> Number of vowels: ${num_vowels}`)
 
 
 
@@ -60,12 +65,12 @@ let fourth = [];
 
 if (user_input === null){
     console.log("no input provided");
-    addLine('<b>Q2:</b> no input provided');
+    addLine2('<b>Q2:</b> no input provided');
 } else {
     const trimmed = user_input.trim(); // .trim removes white space from beginning and end of string
     if (trimmed === ""){
         console.log("no input provided");
-        addLine('<b>Q2:</b> no input provided');
+        addLine2('<b>Q2:</b> no input provided');
     } else{
         const elements = trimmed.split(","); // .split divides a string into an array of substrings based on a separator
         fourth = elements.map(n => Number(n.trim())); // .map applies a function elementwise over an array
@@ -73,7 +78,7 @@ if (user_input === null){
         const hasInvalid = fourth.some(n => Number.isNaN(n));
         if (hasInvalid){
             console.log("invalid input");
-            addLine('<b>Q2:</b> invalid input')
+            addLine2('<b>Q2:</b> invalid input')
             fourth = [];
         }
     }
@@ -96,7 +101,7 @@ console.log(
      oddAddition(third), 
      oddAddition(fourth));
 
-addLine(`<b>Q2:</b> first = ${oddAddition(first)}, second = ${oddAddition(second)}, third = ${oddAddition(third)}, fourth = ${oddAddition(fourth)}`)
+addLine2(`<b>Q2:</b> first = ${oddAddition(first)}, second = ${oddAddition(second)}, third = ${oddAddition(third)}, fourth = ${oddAddition(fourth)}`)
 
 
 // Question 3 - FizzBuzz
@@ -125,7 +130,7 @@ for (let i = 1; i <= 100; i++){
     }
 }
 
-addLine(`<b>Q3:</b> FizzBuzz (1–100): ${fizzbuzz.join(", ")}`);
+addLine3(`<b>Q3:</b> FizzBuzz (1–100): ${fizzbuzz.join(", ")}`);
 
 // Question 4 - Start my car
 // Create a car variable (object)
@@ -149,7 +154,7 @@ class Car {
 // create a Car object for fun
 const myCar = new Car("Honda", "CR-V", 2021, "grey");
 console.log(myCar.start());
-addLine(`<b>Q4:</b> ${myCar.start()}`);
+addLine4(`<b>Q4:</b> ${myCar.start()}`);
 
 
 // Call the start method
@@ -212,15 +217,23 @@ var cities = ['Corvallis', 'Portland', 'Eugene', 'Albany']
 var pops = ['59920', '652500', '176650', '56470']
 
 
-addLine("<b> Q5: </b>")
+addLine5("<b> Q5: </b>")
 
 function myFunc(){
-    var myDiv =  document.getElementById("mydiv");
-    myDiv.innerHTML = output;
+    var q1 =  document.getElementById("q1");
+    var q2 = document.getElementById("q2");
+    var q3 = document.getElementById("q3");
+    var q4 = document.getElementById("q4");
+    var q5 = document.getElementById("q5");
+    q1.innerHTML = output1;
+    q2.innerHTML = output2;
+    q3.innerHTML = output3;
+    q4.innerHTML = output4;
+    q5.innerHTML = output5;
 
     //build and append the table for Q5
     var table = cityBuilder(cities, pops);
-    myDiv.appendChild(table);
+    q5.appendChild(table);
 };
 
 window.onload = myFunc;
